@@ -3,17 +3,26 @@
   :path: test
   :file: test_Rotation.c
 :successes:
-- :test: test_rigithRotate
-  :line: 8
+- :test: test_leftRightRotate
+  :line: 58
   :message: ''
 :failures: []
-:ignores: []
+:ignores:
+- :test: test_leftRotate
+  :line: 12
+  :message: Ignore test_leftRotate_and_rightRotate
+- :test: test_rightRotate
+  :line: 29
+  :message: Ignore test_rightRotate
+- :test: test_rightLeftRotate
+  :line: 45
+  :message: Ignore test_rightLeftRotate
 :counts:
-  :total: 1
+  :total: 4
   :passed: 1
   :failed: 0
-  :ignored: 0
+  :ignored: 3
 :stdout:
-- "[60] [30] [20] [110] [80] [70] [90] [100] [150] [130] "
-- "[60] [30] [20] [80] [70] [90] [100] "
+- "[150] [80] [50] [30] [60] [100] [110] [180] [200] "
+- "[100] [80] [50] [30] [60] [150] [110] [180] [200] "
 - ''

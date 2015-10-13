@@ -31,6 +31,7 @@ char* GlobalOrderError;
 extern void setUp(void);
 extern void tearDown(void);
 extern void test_Node_list(void);
+extern void test_initializeTreeForLRrotateTest(void);
 
 
 //=======Test Reset Option=====
@@ -47,6 +48,7 @@ int main(void)
 {
   UnityBegin("test_Node.c");
   RUN_TEST(test_Node_list, 8);
+  RUN_TEST(test_initializeTreeForLRrotateTest, 18);
 
   return (UnityEnd());
 }

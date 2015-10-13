@@ -1,5 +1,6 @@
 #ifndef Node_H
 #define Node_H
+#include "unity.h"
 
 struct Node_t{
  struct Node_t *left;
@@ -12,8 +13,9 @@ typedef struct Node_t node;
 
 void insertNode(node *head,node *newNode);
 node* createNode(int data);
-void preorderNode(node *root);
-//void testAssertEqualDataInTree(int Arr[],int index,node*root,int lineNo)
-void initializeHead(node* head);
-
+node* createTree(void);
+void InorderNode(node *root);
+void initializeTree(node* head);
+void initializeTreeForLRrotateTest(node* head);
+void setArrToTree(int Arr[],node* head);
 #endif // Node_H

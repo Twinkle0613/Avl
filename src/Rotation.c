@@ -5,20 +5,32 @@
 // void rightLeftRotate(){}
 // void leftRotate(){}
 
-void swap(int* value1, int* value2){
-  int temp;
-  temp = *value1;
-  *value1 = *value2;
-  *value2 = temp; 
+
+void leftRotate(node** root){ 
+  node* rightCh = (*root)->right;
+  node* temp = rightCh->left;
+  (*root)->right = temp;
+  rightCh->left = (*root);
+  *root = rightCh;
 }
 
-void rightRotate (node* root){ 
-  node* letfCh = root->left;
-  node* rightCh = root->right;
-  node* temp = rightCh->left;
-  rightCh->left = NULL;
-  root->right = temp;
-  rightCh->left = root;
-  root = rightCh;
+void rightRotate(node** root){
+  node* leftCh = (*root)->left;
+  node* temp = leftCh->right;
+
+  (*root)->left = temp;
+  leftCh->right = (*root);
+  (*root) = leftCh;
+}
+
+
+void rightLeftRotate(node **root){
+  rightRotate(&((*root)->right));
+  leftRotate(&(*root));
+}
+
+void leftRightRotate(node **root){
+  leftRotate(&((*root)->left));
+  rightRotate(&(*root));
 }
 

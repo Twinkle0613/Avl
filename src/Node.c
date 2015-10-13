@@ -2,16 +2,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <malloc.h>
+#include "unity.h"
+
+#define getArrSize(Arr) (sizeof(Arr)/sizeof(Arr[0]))
+
 node* createNode(int data){
   node *newNode = malloc(sizeof(node));
-  
   newNode->right = NULL;
   newNode->left = NULL;
   newNode->weight = 0;
   newNode->data = data;
   return newNode;
 }
-
 
 void insertNode(node *head,node *newNode){
    if (newNode->data < head->data) {
@@ -29,28 +31,17 @@ void insertNode(node *head,node *newNode){
    }
 }
 
-void preorderNode(node *root){
+void InorderNode(node *root){
   if(root == NULL){
     return ;
   }
   printf("[%d] ",root->data);
-  preorderNode(root->left);
-  preorderNode(root->right);  
-  
+  InorderNode(root->left);
+  InorderNode(root->right);  
 }
 
-//void testAssertEqualDataInTree(int Arr[],int index,node*root,int lineNo){
-  
-  // if(root!= NULL){
-  // testAssertEqualDataInTree(Arr,++index,root->left);
- // UNITY_TEST_ASSERT_EQUAL_INT(Arr[index],root->data,lineNo);
-  // printf("[%d] ",root->data);
-  // testAssertEqualDataInTree(Arr,++index,root->right,lineNo);
-  // }
-  
-// }
-void initializeHead(node* head){
-    
+void initializeTree(node* head){
+
   insertNode(head,createNode(30));
   insertNode(head,createNode(110));
   insertNode(head,createNode(20));
@@ -61,4 +52,17 @@ void initializeHead(node* head){
   insertNode(head,createNode(130));
   insertNode(head,createNode(100));
   
+}
+
+void initializeTreeForLRrotateTest(node* head){
+
+  insertNode(head,createNode(80));
+  insertNode(head,createNode(180));
+  insertNode(head,createNode(50));
+  insertNode(head,createNode(100));
+  insertNode(head,createNode(200));
+  insertNode(head,createNode(30));
+  insertNode(head,createNode(60));
+  insertNode(head,createNode(110));
+
 }

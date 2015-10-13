@@ -1,17 +1,25 @@
 #include "unity.h"
 #include "Node.h"
-
+#include "TestCode.h"
 void setUp(void){}
 
 void tearDown(void){}
 
 void test_Node_list(void){
-  
-  
+  TEST_IGNORE_MESSAGE("Ignore test_Node_list");
   node *head;
   head = createNode(60);
-  initializeHead(head);
-  int Arr[] = {20,30,60,70,80,90,100,110,130,150};
-  preorderNode(head);
-  
+  initializeTree(head);
+  InorderNode(head);
+  TEST_ASSERT_ORIGIN_TREE(head);
+}
+
+
+void test_initializeTreeForLRrotateTest(void){
+  TEST_IGNORE_MESSAGE("Ignore initializeTreeForLRrotateTest");
+  node *head;
+  head = createNode(150);
+  initializeTreeForLRrotateTest(head);
+  InorderNode(head);
+  TEST_ASSERT_ORIGIN_TREE_FOR_LR_ROTATE(head);
 }

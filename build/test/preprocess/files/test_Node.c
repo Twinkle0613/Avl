@@ -13,7 +13,7 @@ void test_Node_list(void){
 
   UnityIgnore( ("Ignore test_Node_list"), (_U_UINT)9);;
 
-  node *head;
+  Node *head;
 
   head = createNode(60);
 
@@ -33,7 +33,7 @@ void test_initializeTreeForLRrotateTest(void){
 
   UnityIgnore( ("Ignore initializeTreeForLRrotateTest"), (_U_UINT)19);;
 
-  node *head;
+  Node *head;
 
   head = createNode(150);
 

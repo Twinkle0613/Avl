@@ -30,6 +30,18 @@ char* GlobalOrderError;
 //=======External Functions This Runner Calls=====
 extern void setUp(void);
 extern void tearDown(void);
+extern void test_avlAdd(void);
+extern void test_avlAdd_add_rightNode(void);
+extern void test_avlAdd_add_rightNode_and_then_add_leftNode(void);
+extern void test_avlAdd_add_node80_into_node30Tree(void);
+extern void test_avlAdd_add_node5_into_node30Tree(void);
+extern void test_avlAdd_add_node50_into_node30Tree(void);
+extern void test_avlAdd_add_2node5_into_node30Tree(void);
+extern void test_avlAdd_add_node20_into_node30Tree(void);
+extern void test_avlAdd_add_node90_into_node30Tree(void);
+extern void test_avlAdd_add_node70_into_node30Tree(void);
+extern void test_avlAdd_add_node25_into_node30Tree(void);
+extern void test_avlAdd_add_node8_into_node30Tree(void);
 
 
 //=======Test Reset Option=====
@@ -45,6 +57,18 @@ void resetTest(void)
 int main(void)
 {
   UnityBegin("test_Avl.c");
+  RUN_TEST(test_avlAdd, 87);
+  RUN_TEST(test_avlAdd_add_rightNode, 99);
+  RUN_TEST(test_avlAdd_add_rightNode_and_then_add_leftNode, 115);
+  RUN_TEST(test_avlAdd_add_node80_into_node30Tree, 133);
+  RUN_TEST(test_avlAdd_add_node5_into_node30Tree, 155);
+  RUN_TEST(test_avlAdd_add_node50_into_node30Tree, 178);
+  RUN_TEST(test_avlAdd_add_2node5_into_node30Tree, 202);
+  RUN_TEST(test_avlAdd_add_node20_into_node30Tree, 225);
+  RUN_TEST(test_avlAdd_add_node90_into_node30Tree, 249);
+  RUN_TEST(test_avlAdd_add_node70_into_node30Tree, 276);
+  RUN_TEST(test_avlAdd_add_node25_into_node30Tree, 305);
+  RUN_TEST(test_avlAdd_add_node8_into_node30Tree, 332);
 
   return (UnityEnd());
 }

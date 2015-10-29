@@ -6,16 +6,16 @@
 
 #define getArrSize(Arr) (sizeof(Arr)/sizeof(Arr[0]))
 
-node* createNode(int data){
-  node *newNode = malloc(sizeof(node));
+Node* createNode(int data){
+  Node *newNode = malloc(sizeof(Node));
   newNode->right = NULL;
   newNode->left = NULL;
-  newNode->weight = 0;
+  newNode->balanceFactor = 0;
   newNode->data = data;
   return newNode;
 }
 
-void insertNode(node *head,node *newNode){
+void insertNode(Node *head,Node *newNode){
    if (newNode->data < head->data) {
       if (head->left == NULL)
          head->left = newNode;
@@ -31,7 +31,7 @@ void insertNode(node *head,node *newNode){
    }
 }
 
-void InorderNode(node *root){
+void InorderNode(Node *root){
   if(root == NULL){
     return ;
   }
@@ -40,7 +40,7 @@ void InorderNode(node *root){
   InorderNode(root->right);  
 }
 
-void initializeTree(node* head){
+void initializeTree(Node* head){
 
   insertNode(head,createNode(30));
   insertNode(head,createNode(110));
@@ -54,7 +54,7 @@ void initializeTree(node* head){
   
 }
 
-void initializeTreeForLRrotateTest(node* head){
+void initializeTreeForLRrotateTest(Node* head){
 
   insertNode(head,createNode(80));
   insertNode(head,createNode(180));
@@ -66,3 +66,11 @@ void initializeTreeForLRrotateTest(node* head){
   insertNode(head,createNode(110));
 
 }
+
+
+void setNode(int weight,Node* root ,Node* leftNode,Node* rightNode){
+  root->balanceFactor = weight;
+  root->left = leftNode;
+  root->right = rightNode;
+}
+

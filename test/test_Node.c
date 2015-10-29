@@ -7,7 +7,7 @@ void tearDown(void){}
 
 void test_Node_list(void){
   TEST_IGNORE_MESSAGE("Ignore test_Node_list");
-  node *head;
+  Node *head;
   head = createNode(60);
   initializeTree(head);
   InorderNode(head);
@@ -17,7 +17,7 @@ void test_Node_list(void){
 
 void test_initializeTreeForLRrotateTest(void){
   TEST_IGNORE_MESSAGE("Ignore initializeTreeForLRrotateTest");
-  node *head;
+  Node *head;
   head = createNode(150);
   initializeTreeForLRrotateTest(head);
   InorderNode(head);

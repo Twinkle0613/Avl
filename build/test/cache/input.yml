@@ -36,10 +36,10 @@
 :defines:
   :test:
   - &1 []
-  - TEST
+  - TEST=
   :test_preprocess:
   - *1
-  - TEST
+  - TEST=
   :release: []
   :release_preprocess: []
   :commmon: []

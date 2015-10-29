@@ -5,17 +5,18 @@
 struct Node_t{
  struct Node_t *left;
  struct Node_t *right;
- int weight;
+ int balanceFactor;
  int data;
 };
 
-typedef struct Node_t node;
+typedef struct Node_t Node;
 
-void insertNode(node *head,node *newNode);
-node* createNode(int data);
-node* createTree(void);
-void InorderNode(node *root);
-void initializeTree(node* head);
-void initializeTreeForLRrotateTest(node* head);
-void setArrToTree(int Arr[],node* head);
+void insertNode(Node *head,Node *newNode);
+Node* createNode(int data);
+Node* createTree(void);
+void InorderNode(Node *root);
+void initializeTree(Node* head);
+void initializeTreeForLRrotateTest(Node* head);
+void setArrToTree(int Arr[],Node* head);
+void setNode(int weight,Node* root ,Node* leftNode,Node* rightNode);
 #endif // Node_H

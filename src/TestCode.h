@@ -81,6 +81,9 @@
   TEST_ASSERT_EQUAL(60,   head->left->left->right->data);          \
 }
 
-
-
+#define TEST_ASSERT_EQUAL_NODE(root,leftNode,rightNode,w){             \
+  TEST_ASSERT_EQUAL(root->left,leftNode);                                   \
+  TEST_ASSERT_EQUAL(root->right,rightNode);                                 \
+  TEST_ASSERT_EQUAL(root->balanceFactor,w);                                   \
+}
 #endif // TextCode_H

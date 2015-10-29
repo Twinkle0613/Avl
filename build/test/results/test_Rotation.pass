@@ -3,26 +3,33 @@
   :path: test
   :file: test_Rotation.c
 :successes:
+- :test: test_leftRotate
+  :line: 49
+  :message: ''
+- :test: test_rightRotate
+  :line: 65
+  :message: ''
+- :test: test_rightLeftRotate
+  :line: 80
+  :message: ''
 - :test: test_leftRightRotate
-  :line: 58
+  :line: 93
   :message: ''
 :failures: []
-:ignores:
-- :test: test_leftRotate
-  :line: 12
-  :message: Ignore test_leftRotate_and_rightRotate
-- :test: test_rightRotate
-  :line: 29
-  :message: Ignore test_rightRotate
-- :test: test_rightLeftRotate
-  :line: 45
-  :message: Ignore test_rightLeftRotate
+:ignores: []
 :counts:
   :total: 4
-  :passed: 1
+  :passed: 4
   :failed: 0
-  :ignored: 3
+  :ignored: 0
 :stdout:
+- "[60] [30] [20] [110] [80] [70] [90] [100] [150] [130] "
+- "[110] [60] [30] [20] [80] [70] [90] [100] [150] [130] "
+- "-------------------------------------------------------"
+- "[60] [30] [20] [110] [80] [70] [90] [100] [150] [130] "
+- "[30] [20] [60] [110] [80] [70] [90] [100] [150] [130] "
+- "[60] [30] [20] [110] [80] [70] [90] [100] [150] [130] "
+- "[80] [60] [30] [20] [70] [110] [90] [100] [150] [130] "
 - "[150] [80] [50] [30] [60] [100] [110] [180] [200] "
 - "[100] [80] [50] [30] [60] [150] [110] [180] [200] "
 - ''

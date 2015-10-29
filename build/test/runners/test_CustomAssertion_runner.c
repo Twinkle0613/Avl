@@ -30,10 +30,7 @@ char* GlobalOrderError;
 //=======External Functions This Runner Calls=====
 extern void setUp(void);
 extern void tearDown(void);
-extern void test_leftRotate(void);
-extern void test_rightRotate(void);
-extern void test_rightLeftRotate(void);
-extern void test_leftRightRotate(void);
+extern void test_customTestAssertEqualNode(void);
 
 
 //=======Test Reset Option=====
@@ -48,11 +45,8 @@ void resetTest(void)
 //=======MAIN=====
 int main(void)
 {
-  UnityBegin("test_Rotation.c");
-  RUN_TEST(test_leftRotate, 49);
-  RUN_TEST(test_rightRotate, 65);
-  RUN_TEST(test_rightLeftRotate, 80);
-  RUN_TEST(test_leftRightRotate, 93);
+  UnityBegin("test_CustomAssertion.c");
+  RUN_TEST(test_customTestAssertEqualNode, 68);
 
   return (UnityEnd());
 }

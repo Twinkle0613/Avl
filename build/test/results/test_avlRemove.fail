@@ -1,0 +1,32 @@
+---
+:source:
+  :path: test
+  :file: test_avlRemove.c
+:successes:
+- :test: test_avlRemove_remove_node60_in_tree
+  :line: 85
+  :message: ''
+- :test: test_avlRemove_remove_node10_in_tree
+  :line: 105
+  :message: ''
+- :test: test_avlRemove_remove_node5_in_tree
+  :line: 124
+  :message: ''
+:failures:
+- :test: test_avlRemove_right_rotation_remove_node10_and_the_balance_factor_of_node60_is_0_in_tree
+  :line: 157
+  :message: Expected 0 Was 4272632. The left child is wrong.
+:ignores: []
+:counts:
+  :total: 4
+  :passed: 3
+  :failed: 1
+  :ignored: 0
+:stdout:
+- root->balanceFactor = 1
+- root->balanceFactor = 0
+- root->balanceFactor = 0
+- root->balanceFactor = 2
+- rootBalFactor is 2
+- rootRightCh->balanceFactor = 0
+- ''

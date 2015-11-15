@@ -30,7 +30,10 @@ char* GlobalOrderError;
 //=======External Functions This Runner Calls=====
 extern void setUp(void);
 extern void tearDown(void);
-extern void test_customTestAssertEqualNode(void);
+extern void test_avlRemove_remove_node60_in_tree(void);
+extern void test_avlRemove_remove_node10_in_tree(void);
+extern void test_avlRemove_remove_node5_in_tree(void);
+extern void test_avlRemove_right_rotation_remove_node10_and_the_balance_factor_of_node60_is_0_in_tree(void);
 
 
 //=======Test Reset Option=====
@@ -45,8 +48,11 @@ void resetTest(void)
 //=======MAIN=====
 int main(void)
 {
-  UnityBegin("test_CustomAssertion.c");
-  RUN_TEST(test_customTestAssertEqualNode, 68);
+  UnityBegin("test_avlRemove.c");
+  RUN_TEST(test_avlRemove_remove_node60_in_tree, 85);
+  RUN_TEST(test_avlRemove_remove_node10_in_tree, 105);
+  RUN_TEST(test_avlRemove_remove_node5_in_tree, 124);
+  RUN_TEST(test_avlRemove_right_rotation_remove_node10_and_the_balance_factor_of_node60_is_0_in_tree, 145);
 
   return (UnityEnd());
 }

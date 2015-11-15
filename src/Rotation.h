@@ -5,6 +5,4 @@ void leftRotate(Node** root);
 void rightRotate(Node** root);
 void rightLeftRotate(Node **root);
 void leftRightRotate(Node **root);
-
-
 #endif // Rotation_H

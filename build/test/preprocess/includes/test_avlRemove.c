@@ -1,5 +1,6 @@
 ---
 - unity.h
+- avlRemove.h
 - Avl.h
 - Node.h
 - CustomAssertion.h

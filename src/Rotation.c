@@ -21,29 +21,14 @@ void incBFByTwo(Node* root){
 }
 
 void leftRotate(Node** root){ 
-  if(rootRightCh->balanceFactor == 0){
-    decBFByOne((*root));
-  }else{
-    decBFByTwo((*root));
-  }
-   decBFByOne(rootRightCh);
   Node* rightCh = (*root)->right;
   Node* temp = rightCh->left;
   (*root)->right = temp;
   rightCh->left = (*root);
   *root = rightCh;
-  
 }
 
 void rightRotate(Node** root){
-  
-  if(rootLeftCh->balanceFactor == 0){
-    incBFByOne((*root));
-  }else{
-    incBFByTwo((*root));
-  }
-    incBFByOne(rootLeftCh);
-  
   Node* leftCh = (*root)->left;
   Node* temp = leftCh->right;
   (*root)->left = temp;

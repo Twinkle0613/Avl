@@ -1,34 +1,25 @@
-#include "Rotation.c"
 #include "Avl.h"
 #include "Node.h"
 #include <stdlib.h>
+#include "Rotation.h"
 
 #define rootBalFactor ((*root)->balanceFactor)
 #define returnOne {return 1;}
 #define returnZero {return 0;}
 #define returnOneIfBFIsNegOrPosOne(root) {((*root)->balanceFactor == -1 || (*root)->balanceFactor == 1)?(returnOne):(returnZero);}
-// #define avlRemove(root,value,heightChange) {     \
-  // Node *temp = _avlRemove(&root,value,heightChange);          \
-  // rotateTreeForAvlRemove(&root);             \
-  // return temp;
-// }
+
 
 int avlAdd(Node** root, Node* newNode){
   int change; 
   if((*root)->data > newNode->data && (*root)->left == NULL ){
-    
     (*root)->left = newNode; 
     decBFByOne((*root));    
     returnOneIfBFIsNegOrPosOne(root);
-    
   }else if((*root)->data < newNode->data && (*root)->right == NULL ){
-   
    (*root)->right = newNode;
     incBFByOne((*root));  
     returnOneIfBFIsNegOrPosOne(root);
-    
   }else if( (*root)->data > newNode->data ){
-    
    change = avlAdd(&(*root)->left,newNode);
    if(change){
      decBFByOne((*root));
@@ -39,13 +30,37 @@ int avlAdd(Node** root, Node* newNode){
      incBFByOne((*root));
    }
   }
-   rotateTreeIfBFIsTwo(root,&change);
+   rotateTreeForAvlAdd(root,&change);
   return change;
 }
 
+void rotateTreeForAvlAdd(Node** root, int* change){
+  if((*root)->balanceFactor == 2){
+      if( rootRightCh->balanceFactor == -1){
+        editBalFactorForAvlAddRLrotate(root);
+        rightLeftRotate(root); 
+      }else{
+        editBalFactorForAvlAddLrotate(root);
+        leftRotate(root);        
+      }
+      *change = 0;
+  }else if((*root)->balanceFactor == -2){
 
-void balanceFactorForLRrotate(Node** root){
-  
+      if( rootLeftCh->balanceFactor == 1){
+        editBalFactorForAvlAddLRrotate(root);
+        leftRightRotate(root); 
+      }else{
+            
+        editBalFactorForAvlAddRrotate(root);
+        rightRotate(root);        
+      }
+      *change = 0;
+  }
+}
+
+
+
+void editBalFactorForAvlAddLRrotate(Node** root){
   if( (*root)->left->right->balanceFactor == -1){
     (*root)->balanceFactor = 1;                 //double circle 
     (*root)->left->balanceFactor = 0;           //flower
@@ -59,31 +74,27 @@ void balanceFactorForLRrotate(Node** root){
     (*root)->left->balanceFactor = 0;           //flower
     (*root)->right->left->balanceFactor = 0;    //durian 
   }
-        
-  
-  
 }
 
-void balanceFactorForRrotate(Node** root){
+void editBalFactorForAvlAddRrotate(Node** root){
   if(rootLeftCh->balanceFactor == 0){
     incBFByOne((*root));
   }else{
     incBFByTwo((*root));
   }
     incBFByOne(rootLeftCh);
-       
 }
-void balanceFactorForLrotate(Node** root){
-  
+
+void editBalFactorForAvlAddLrotate(Node** root){
   if(rootRightCh->balanceFactor == 0){
     decBFByOne((*root));
   }else{
     decBFByTwo((*root));
   }
     decBFByOne(rootRightCh);
-  
 }
-void balanceFactorForRLrotate(Node** root){
+
+void editBalFactorForAvlAddRLrotate(Node** root){
   if( (*root)->right->left->balanceFactor == 1){
     (*root)->balanceFactor = -1;              //double circle 
     (*root)->right->balanceFactor = 0;        //flower
@@ -101,75 +112,6 @@ void balanceFactorForRLrotate(Node** root){
 
 
 
-void rotateTreeIfBFIsTwo(Node** root, int* change){
-  if((*root)->balanceFactor == 2){
-      if( rootRightCh->balanceFactor == -1){
-        balanceFactorForRLrotate(&(*root));
-        rightLeftRotate(&(*root)); 
-      }else{
-        balanceFactorForLrotate(&(*root));
-        leftRotate(&(*root));        
-      }
-      *change = 0;
-  }else if((*root)->balanceFactor == -2){
-
-      if( rootLeftCh->balanceFactor == 1){
-        balanceFactorForLRrotate(&(*root));
-        leftRightRotate(&(*root)); 
-      }else{
-            
-        balanceFactorForRrotate(&(*root));
-        rightRotate(&(*root));        
-      }
-      *change = 0;
-  }
-}
-
-void rotateTreeForAvlRemove(Node** root){
-  //printf("rootBalFactor = %d\n",(*root)->balanceFactor);
-  switch( (*root)->balanceFactor ){
-     case 2:
-      printf("rootBalFactor is 2\n");
-         printf("rootRightCh->balanceFactor = %d\n",(*root)->right->balanceFactor);
-       switch( (*root)->right->balanceFactor ){
-         case -1:
-          // rightLeftRotate(root); 
-         break;
-         case 1:
-          // rightRotate(root); 
-          // (*root)->balanceFactor = 0;
-          // (*root)->left->balanceFactor = 0;
-         break;
-         case 0:
-           rightRotate(&root); 
-          // (*root)->balanceFactor = -1;
-          // (*root)->left->balanceFactor = 1;
-         break;
-         default:break;
-       }
-     break;
-    case -2:
-      // switch((*root)->left->balanceFactor){
-         // case 1:
-          // leftRightRotate(root); 
-         // break;
-         // case -1:
-          // leftRotate(root); 
-          // (*root)->balanceFactor = 0;
-          // (*root)->right->balanceFactor = 0;
-         // break;
-         // case 0:
-          // leftRotate(root); 
-          // (*root)->balanceFactor = 1;
-          // (*root)->right->balanceFactor = -1;
-         // break;
-         // default:break;
-       // }
-    break;
-     default:break;
-   }
-}
-
 Node *avlRemove(Node** root, int value , int *heightChange){
      Node* temp;
     if( value == (*root)->data ){
@@ -184,21 +126,95 @@ Node *avlRemove(Node** root, int value , int *heightChange){
       if( *heightChange ==  1 ){
       --((*root)->balanceFactor);
       }
-    //rotateTreeForAvlRemove(root);
+     rotateTreeForAvlRemove(root);
     }else if ( value < (*root)->data){
      temp = avlRemove( &(*root)->left , value , heightChange );
      if( *heightChange ==  1){
       ++((*root)->balanceFactor);
       }
-      printf("root->balanceFactor = %d\n",(*root)->balanceFactor);
-      rotateTreeForAvlRemove(&(*root));
+      rotateTreeForAvlRemove(root);
     }
     return temp;
 }
 
-// Node *avlRemove(Node** root, int value, int *heightChange){   
-  // printf("Hello\n");
-  // Node *temp = _avlRemove(&(*root),value,heightChange);          
-  // rotateTreeForAvlRemove(&root);             
-  // return temp;
-// }
+void rotateTreeForAvlRemove(Node** root){
+  switch( (*root)->balanceFactor ){
+     case 2:
+      if( (*root)->right->balanceFactor == -1 ){
+        rightLeftRotate(root); 
+        editBalFactorForAvlRovRLrotate(root);
+      }else{
+        leftRotate(root); 
+        editBalFactorForAvlRovLrotate(root);
+      }
+     break;
+    case -2:
+    
+      if((*root)->left->balanceFactor == 1){
+        leftRightRotate(root); 
+        editBalFactorForAvlRovLRrotate(root);
+      }else{
+        rightRotate(root); 
+        editBalFactorForAvlRovRrotate(root);
+      }
+    break;
+     default:break;
+   }
+}
+
+void editBalFactorForAvlRovRLrotate(Node** root){
+  if( (*root)->balanceFactor == 0 ){
+    (*root)->balanceFactor = 0;
+    (*root)->left->balanceFactor = 0;
+    (*root)->right->balanceFactor = 0;
+  }else if( (*root)->balanceFactor  == 1 ){
+    (*root)->balanceFactor = 0;
+    (*root)->left->balanceFactor = -1;
+    (*root)->right->balanceFactor = 0;
+  }else if( (*root)->balanceFactor  == -1 ){
+    (*root)->balanceFactor = 0;
+    (*root)->left->balanceFactor = 0;
+    (*root)->right->balanceFactor = 1;
+  }
+}
+void editBalFactorForAvlRovLRrotate(Node** root){
+  if( (*root)->balanceFactor  == 0 ){
+    (*root)->balanceFactor = 0;
+    (*root)->left->balanceFactor = 0;
+    (*root)->right->balanceFactor = 0;
+  }else if( (*root)->balanceFactor  == 1 ){
+    (*root)->balanceFactor = 0;
+    (*root)->left->balanceFactor = -1;
+    (*root)->right->balanceFactor = 0;
+  }else if( (*root)->balanceFactor  == -1 ){
+    (*root)->balanceFactor = 0;
+    (*root)->left->balanceFactor = 0;
+    (*root)->right->balanceFactor = 1;
+  }
+}
+
+void editBalFactorForAvlRovLrotate(Node** root){
+  if( (*root)->balanceFactor == 1){
+    (*root)->balanceFactor = 0;
+    (*root)->left->balanceFactor = 0;
+  }else{
+    (*root)->balanceFactor = -1;
+    (*root)->left->balanceFactor = 1;
+  }
+}
+
+void editBalFactorForAvlRovRrotate(Node** root){
+  if( (*root)->balanceFactor == -1){
+    (*root)->balanceFactor = 0;
+    (*root)->right->balanceFactor = 0;
+  }else{
+    (*root)->balanceFactor = 1;
+    (*root)->right->balanceFactor = -1;
+  }
+}
+
+
+
+
+
+

@@ -33,7 +33,20 @@ extern void tearDown(void);
 extern void test_avlRemove_remove_node60_in_tree(void);
 extern void test_avlRemove_remove_node10_in_tree(void);
 extern void test_avlRemove_remove_node5_in_tree(void);
-extern void test_avlRemove_right_rotation_remove_node10_and_the_balance_factor_of_node60_is_0_in_tree(void);
+extern void test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_0(void);
+extern void test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_1_and_given_extra_node80(void);
+extern void test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_1_and_given_extra_node65(void);
+extern void test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_1_and_given_extra_node65_and_node80(void);
+extern void test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_0(void);
+extern void test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_negetive_1_and_given_extra_node50(void);
+extern void test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_negetive_1_and_given_extra_node30(void);
+extern void test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_negetive_1_and_given_extra_node30_and_node50(void);
+extern void test_avlRemove_remove_node10_and_given_the_bal_factor_of_node40_is_0(void);
+extern void test_avlRemove_remove_node10_and_given_the_bal_factor_of_node40_is_negative_1(void);
+extern void test_avlRemove_remove_node10_and_given_the_bal_factor_of_node40_is_1(void);
+extern void test_avlRemove_remove_node130_and_given_the_bal_factor_of_node80_is_0(void);
+extern void test_avlRemove_remove_node130_and_given_the_bal_factor_of_node80_is_negative_1(void);
+extern void test_avlRemove_remove_node130_and_given_the_bal_factor_of_node80_is_1(void);
 
 
 //=======Test Reset Option=====
@@ -49,10 +62,23 @@ void resetTest(void)
 int main(void)
 {
   UnityBegin("test_avlRemove.c");
-  RUN_TEST(test_avlRemove_remove_node60_in_tree, 85);
-  RUN_TEST(test_avlRemove_remove_node10_in_tree, 105);
-  RUN_TEST(test_avlRemove_remove_node5_in_tree, 124);
-  RUN_TEST(test_avlRemove_right_rotation_remove_node10_and_the_balance_factor_of_node60_is_0_in_tree, 145);
+  RUN_TEST(test_avlRemove_remove_node60_in_tree, 88);
+  RUN_TEST(test_avlRemove_remove_node10_in_tree, 108);
+  RUN_TEST(test_avlRemove_remove_node5_in_tree, 127);
+  RUN_TEST(test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_0, 148);
+  RUN_TEST(test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_1_and_given_extra_node80, 177);
+  RUN_TEST(test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_1_and_given_extra_node65, 210);
+  RUN_TEST(test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_1_and_given_extra_node65_and_node80, 245);
+  RUN_TEST(test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_0, 281);
+  RUN_TEST(test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_negetive_1_and_given_extra_node50, 309);
+  RUN_TEST(test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_negetive_1_and_given_extra_node30, 339);
+  RUN_TEST(test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_negetive_1_and_given_extra_node30_and_node50, 371);
+  RUN_TEST(test_avlRemove_remove_node10_and_given_the_bal_factor_of_node40_is_0, 405);
+  RUN_TEST(test_avlRemove_remove_node10_and_given_the_bal_factor_of_node40_is_negative_1, 439);
+  RUN_TEST(test_avlRemove_remove_node10_and_given_the_bal_factor_of_node40_is_1, 471);
+  RUN_TEST(test_avlRemove_remove_node130_and_given_the_bal_factor_of_node80_is_0, 506);
+  RUN_TEST(test_avlRemove_remove_node130_and_given_the_bal_factor_of_node80_is_negative_1, 542);
+  RUN_TEST(test_avlRemove_remove_node130_and_given_the_bal_factor_of_node80_is_1, 575);
 
   return (UnityEnd());
 }

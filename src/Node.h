@@ -10,7 +10,6 @@ struct Node_t{
 };
 
 typedef struct Node_t Node;
-
 void insertNode(Node *head,Node *newNode);
 Node* createNode(int data);
 Node* createTree(void);

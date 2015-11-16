@@ -1,5 +1,7 @@
 #include "Rotation.h"
 #include "Node.h"
+#include <stdlib.h>
+
 
 void decBFByOne(Node* root){
    root->balanceFactor = root->balanceFactor - 1;

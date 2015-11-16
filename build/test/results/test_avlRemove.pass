@@ -1,0 +1,65 @@
+---
+:source:
+  :path: test
+  :file: test_avlRemove.c
+:successes:
+- :test: test_avlRemove_remove_node60_in_tree
+  :line: 88
+  :message: ''
+- :test: test_avlRemove_remove_node10_in_tree
+  :line: 108
+  :message: ''
+- :test: test_avlRemove_remove_node5_in_tree
+  :line: 127
+  :message: ''
+- :test: test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_0
+  :line: 148
+  :message: ''
+- :test: test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_1_and_given_extra_node80
+  :line: 177
+  :message: ''
+- :test: test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_1_and_given_extra_node65
+  :line: 210
+  :message: ''
+- :test: test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_1_and_given_extra_node65_and_node80
+  :line: 245
+  :message: ''
+- :test: test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_0
+  :line: 281
+  :message: ''
+- :test: test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_negetive_1_and_given_extra_node50
+  :line: 309
+  :message: ''
+- :test: test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_negetive_1_and_given_extra_node30
+  :line: 339
+  :message: ''
+- :test: test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_negetive_1_and_given_extra_node30_and_node50
+  :line: 371
+  :message: ''
+- :test: test_avlRemove_remove_node10_and_given_the_bal_factor_of_node40_is_0
+  :line: 405
+  :message: ''
+- :test: test_avlRemove_remove_node10_and_given_the_bal_factor_of_node40_is_negative_1
+  :line: 439
+  :message: ''
+- :test: test_avlRemove_remove_node10_and_given_the_bal_factor_of_node40_is_1
+  :line: 471
+  :message: ''
+- :test: test_avlRemove_remove_node130_and_given_the_bal_factor_of_node80_is_0
+  :line: 506
+  :message: ''
+- :test: test_avlRemove_remove_node130_and_given_the_bal_factor_of_node80_is_negative_1
+  :line: 542
+  :message: ''
+- :test: test_avlRemove_remove_node130_and_given_the_bal_factor_of_node80_is_1
+  :line: 575
+  :message: ''
+:failures: []
+:ignores: []
+:counts:
+  :total: 17
+  :passed: 17
+  :failed: 0
+  :ignored: 0
+:stdout:
+- ''

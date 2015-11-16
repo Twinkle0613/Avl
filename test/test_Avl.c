@@ -2,6 +2,7 @@
 #include "Avl.h"
 #include "Node.h"
 #include "CustomAssertion.h"
+#include "Rotation.h"
 //#include "TestCode.h"
 Node node0;
 Node node3;

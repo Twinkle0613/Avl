@@ -232,7 +232,7 @@ void test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_0(void){
 
 
 
-  UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((heightChange)), (((void *)0)), (_U_UINT)158, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((heightChange)), (((void *)0)), (_U_UINT)158, UNITY_DISPLAY_STYLE_INT);
 
   UnityAssertEqualNumber((_U_SINT)(_UP)((&node10)), (_U_SINT)(_UP)((temp)), (((void *)0)), (_U_UINT)159, UNITY_DISPLAY_STYLE_HEX32);
 
@@ -394,7 +394,7 @@ void test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_0(void)
 
 
 
-  UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((heightChange)), (((void *)0)), (_U_UINT)291, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((heightChange)), (((void *)0)), (_U_UINT)291, UNITY_DISPLAY_STYLE_INT);
 
   UnityAssertEqualNumber((_U_SINT)(_UP)((&node130)), (_U_SINT)(_UP)((temp)), (((void *)0)), (_U_UINT)292, UNITY_DISPLAY_STYLE_HEX32);
 
@@ -793,5 +793,211 @@ void test_avlRemove_remove_node130_and_given_the_bal_factor_of_node80_is_1(void)
   { customTestAssertEqualNode(&node90,((void *)0),((void *)0),0,593); };
 
   { customTestAssertEqualNode(&node130,((void *)0),((void *)0),0,594); };
+
+}
+
+void test_avlRemove_remove_node80_and_The_BF_of_node60_is_change_from_0_to_neg_1(void){
+
+
+
+  Node *root = &node100;
+
+  int cState = avlAdd(&root,&node60);
+
+  cState =avlAdd(&root,&node130);
+
+  cState =avlAdd(&root,&node40);
+
+  cState =avlAdd(&root,&node80);
+
+
+
+  int heightChange;
+
+  Node *temp = avlRemove(&root,80,&heightChange);
+
+  UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((heightChange)), (((void *)0)), (_U_UINT)617, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)(_UP)((&node80)), (_U_SINT)(_UP)((temp)), (((void *)0)), (_U_UINT)618, UNITY_DISPLAY_STYLE_HEX32);
+
+
+
+  { customTestAssertEqualNode(root,&node60,&node130,-1,620); };
+
+  { customTestAssertEqualNode(&node60,&node40,((void *)0),-1,621); };
+
+  { customTestAssertEqualNode(&node130,((void *)0),((void *)0),0,622); };
+
+
+
+}
+
+ void test_avlRemove_remove_node80_and_The_BF_of_node60_is_(void){
+
+
+
+  Node *root = &node100;
+
+  int cState = avlAdd(&root,&node60);
+
+  cState =avlAdd(&root,&node130);
+
+  cState =avlAdd(&root,&node140);
+
+  cState =avlAdd(&root,&node110);
+
+
+
+  int heightChange;
+
+  Node *temp = avlRemove(&root,110,&heightChange);
+
+  UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((heightChange)), (((void *)0)), (_U_UINT)645, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)(_UP)((&node110)), (_U_SINT)(_UP)((temp)), (((void *)0)), (_U_UINT)646, UNITY_DISPLAY_STYLE_HEX32);
+
+
+
+  { customTestAssertEqualNode(root,&node60,&node130,1,648); };
+
+  { customTestAssertEqualNode(&node60,((void *)0),((void *)0),0,649); };
+
+  { customTestAssertEqualNode(&node130,((void *)0),&node140,1,650); };
+
+
+
+}
+
+void test_avlGetReplace_expected_BF_of_node60_is_negative_1_and_heightChange_is_0(void){
+
+
+
+
+
+  Node *root = &node30;
+
+  int cState = avlAdd(&root,&node20);
+
+  cState =avlAdd(&root,&node60);
+
+  cState =avlAdd(&root,&node10);
+
+  cState =avlAdd(&root,&node40);
+
+  cState =avlAdd(&root,&node70);
+
+  cState =avlAdd(&root,&node35);
+
+  cState =avlAdd(&root,&node50);
+
+
+
+  int heightChange;
+
+  Node *temp = avlGetReplace( &root->right ,&heightChange);
+
+  printf("heightChange = %d\n", heightChange);
+
+  UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((heightChange)), (((void *)0)), (_U_UINT)682, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)(_UP)((&node35)), (_U_SINT)(_UP)((temp)), (((void *)0)), (_U_UINT)683, UNITY_DISPLAY_STYLE_HEX32);
+
+  { customTestAssertEqualNode(root,&node20,&node60,1,684); };
+
+  { customTestAssertEqualNode(&node20,&node10,((void *)0),-1,685); };
+
+  { customTestAssertEqualNode(&node60,&node40,&node70,-1,686); };
+
+  { customTestAssertEqualNode(&node10,((void *)0),((void *)0),0,687); };
+
+  { customTestAssertEqualNode(&node40,((void *)0),&node50,1,688); };
+
+  { customTestAssertEqualNode(&node70,((void *)0),((void *)0),0,689); };
+
+}
+
+void xtest_avlGetReplace_expected_BF_of_node60_is_negative_1_and_heightChange_is_1(void){
+
+
+
+
+
+  Node *root = &node30;
+
+  int cState = avlAdd(&root,&node20);
+
+  cState =avlAdd(&root,&node60);
+
+  cState =avlAdd(&root,&node10);
+
+  cState =avlAdd(&root,&node40);
+
+  cState =avlAdd(&root,&node35);
+
+  cState =avlAdd(&root,&node70);
+
+
+
+  int heightChange;
+
+  Node *temp = avlGetReplace( &root->right ,&heightChange);
+
+  printf(" heightChange = %d\n", heightChange);
+
+  UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((heightChange)), (((void *)0)), (_U_UINT)715, UNITY_DISPLAY_STYLE_INT);
+
+  printf("temp->data = %d",temp->data);
+
+  UnityAssertEqualNumber((_U_SINT)(_UP)((&node35)), (_U_SINT)(_UP)((temp)), (((void *)0)), (_U_UINT)717, UNITY_DISPLAY_STYLE_HEX32);
+
+
+
+  { customTestAssertEqualNode(&node60,&node40,&node70,0,719); };
+
+  { customTestAssertEqualNode(&node40,((void *)0),((void *)0),0,720); };
+
+  { customTestAssertEqualNode(&node70,((void *)0),((void *)0),0,721); };
+
+}
+
+void test_avlGetReplace_expected_BF_of_node60_is_0(void){
+
+
+
+
+
+  Node *root = &node30;
+
+  int cState = avlAdd(&root,&node20);
+
+  cState =avlAdd(&root,&node60);
+
+  cState =avlAdd(&root,&node10);
+
+  cState =avlAdd(&root,&node40);
+
+  cState =avlAdd(&root,&node70);
+
+  cState =avlAdd(&root,&node50);
+
+
+
+  int heightChange;
+
+  Node *temp = avlGetReplace( &root->right ,&heightChange);
+
+  printf(" heightChange = %d\n", heightChange);
+
+  UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((heightChange)), (((void *)0)), (_U_UINT)750, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)(_UP)((&node40)), (_U_SINT)(_UP)((temp)), (((void *)0)), (_U_UINT)751, UNITY_DISPLAY_STYLE_HEX32);
+
+
+
+  { customTestAssertEqualNode(&node60,&node50,&node70,0,753); };
+
+  { customTestAssertEqualNode(&node50,((void *)0),((void *)0),0,754); };
+
+  { customTestAssertEqualNode(&node70,((void *)0),((void *)0),0,755); };
 
 }

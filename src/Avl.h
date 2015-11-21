@@ -14,6 +14,7 @@ void editBalFactorForAvlRovRLrotate(Node** root);
 void editBalFactorForAvlRovLRrotate(Node** root);
 void editBalFactorForAvlRovRrotate(Node** root);
 void editBalFactorForAvlRovLrotate(Node** root);
+Node* avlGetReplace(Node** root, int* heightChange);
 
 
 void rotateTreeForAvlAdd(Node** root, int* change);

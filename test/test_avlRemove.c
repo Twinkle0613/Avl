@@ -155,7 +155,7 @@ void test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_0(void){
   int heightChange;
   Node *temp = avlRemove(&root,10,&heightChange);
   
-  TEST_ASSERT_EQUAL(1,heightChange);
+  TEST_ASSERT_EQUAL(0,heightChange);
   TEST_ASSERT_EQUAL_PTR(&node10,temp);
   TEST_ASSERT_EQUAL_NODE(root,&node30,&node70,-1);
   TEST_ASSERT_EQUAL_NODE(&node30,NULL,&node50,1);
@@ -288,7 +288,7 @@ void test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_0(void)
   int heightChange;
   Node *temp = avlRemove(&root,130,&heightChange);
 
-  TEST_ASSERT_EQUAL(1,heightChange);
+  TEST_ASSERT_EQUAL(0,heightChange);
   TEST_ASSERT_EQUAL_PTR(&node130,temp);
   TEST_ASSERT_EQUAL_NODE(root,&node40,&node100,1);
   TEST_ASSERT_EQUAL_NODE(&node100,&node80,NULL,-1);
@@ -593,4 +593,177 @@ void test_avlRemove_remove_node130_and_given_the_bal_factor_of_node80_is_1(void)
   TEST_ASSERT_EQUAL_NODE(&node90,NULL,NULL,0);
   TEST_ASSERT_EQUAL_NODE(&node130,NULL,NULL,0);
 }
+//---------------------------------------------------------------------------
+
+/**                            
+ *              100(-1)                  100(-1)         
+ *             /    \      ------>       /   \       
+ *         (0)60   130              (-1)60  130        
+ *           / \                      /                                
+ *         40  80(0)                40                          
+ *
+ **/
+
+void test_avlRemove_remove_node80_and_The_BF_of_node60_is_change_from_0_to_neg_1(void){
+  
+  Node *root = &node100;
+  int cState =  avlAdd(&root,&node60);
+  cState =avlAdd(&root,&node130);
+  cState =avlAdd(&root,&node40);
+  cState =avlAdd(&root,&node80);   
+  
+  int heightChange;
+  Node *temp = avlRemove(&root,80,&heightChange);
+  TEST_ASSERT_EQUAL(0,heightChange);
+  TEST_ASSERT_EQUAL_PTR(&node80,temp);
+  
+  TEST_ASSERT_EQUAL_NODE(root,&node60,&node130,-1);
+  TEST_ASSERT_EQUAL_NODE(&node60,&node40,NULL,-1);
+  TEST_ASSERT_EQUAL_NODE(&node130,NULL,NULL,0);
+  
+}
+
+/**                            
+ *              100(+1)                  100(+1)         
+ *             /    \      ------>       /   \       
+ *            60   130(0)               60   130(+1)        
+ *                 / \                        \
+ *               110 140                      140
+ *
+ **/
+
+ void test_avlRemove_remove_node80_and_The_BF_of_node60_is_(void){
+  
+  Node *root = &node100;
+  int cState =  avlAdd(&root,&node60);
+  cState =avlAdd(&root,&node130);
+  cState =avlAdd(&root,&node140);
+  cState =avlAdd(&root,&node110);   
+  
+  int heightChange;
+  Node *temp = avlRemove(&root,110,&heightChange);
+  TEST_ASSERT_EQUAL(0,heightChange);
+  TEST_ASSERT_EQUAL_PTR(&node110,temp);
+  
+  TEST_ASSERT_EQUAL_NODE(root,&node60,&node130,1);
+  TEST_ASSERT_EQUAL_NODE(&node60,NULL,NULL,0);
+  TEST_ASSERT_EQUAL_NODE(&node130,NULL,&node140,1);
+  
+}
+ 
+ 
+
+ 
+ /**                             
+ *             30(+1)                30(+1)               
+ *             / \      ------>     /  \        heightChange = 0;
+ *           20  60(-1)           20   60(-1)            
+ *          /    / \             /     /  \                
+ *        10 (0)40  70          10 (+1)40   70             
+ *            / \                     \
+ *          35  50                    50
+ **/
+ 
+void test_avlGetReplace_expected_BF_of_node60_is_negative_1_and_heightChange_is_0(void){
+  
+  
+  Node *root = &node30;
+  int cState =  avlAdd(&root,&node20);
+  cState =avlAdd(&root,&node60);
+  cState =avlAdd(&root,&node10);
+  cState =avlAdd(&root,&node40);   
+  cState =avlAdd(&root,&node70);
+  cState =avlAdd(&root,&node35);
+  cState =avlAdd(&root,&node50);
+  
+  int heightChange;
+  Node *temp = avlGetReplace( &root->right ,&heightChange);
+  printf("heightChange = %d\n", heightChange);
+  TEST_ASSERT_EQUAL(0,heightChange);
+  TEST_ASSERT_EQUAL_PTR(&node35,temp);
+  TEST_ASSERT_EQUAL_NODE(root,&node20,&node60,1);
+  TEST_ASSERT_EQUAL_NODE(&node20,&node10,NULL,-1);
+  TEST_ASSERT_EQUAL_NODE(&node60,&node40,&node70,-1);
+  TEST_ASSERT_EQUAL_NODE(&node10,NULL,NULL,0);
+  TEST_ASSERT_EQUAL_NODE(&node40,NULL,&node50,1);
+  TEST_ASSERT_EQUAL_NODE(&node70,NULL,NULL,0);
+}
+ 
+ /**                             
+ *             30(+1)                30(+1)               
+ *             / \      ------>     /  \         heightChange = 1;
+ *           20  60(-1)           20   60(-1)            
+ *          /    / \             /     /   \                
+ *        10 (-1)40  70        10   (0)40   70             
+ *            /                         
+ *          35                          
+ **/
+void xtest_avlGetReplace_expected_BF_of_node60_is_negative_1_and_heightChange_is_1(void){
+  
+  
+  Node *root = &node30;
+  int cState =  avlAdd(&root,&node20);
+  cState =avlAdd(&root,&node60);
+  cState =avlAdd(&root,&node10);
+  cState =avlAdd(&root,&node40);   
+  cState =avlAdd(&root,&node35);   
+  cState =avlAdd(&root,&node70);
+  
+  int heightChange;
+  Node *temp = avlGetReplace( &root->right ,&heightChange);
+  printf(" heightChange = %d\n", heightChange);
+  TEST_ASSERT_EQUAL(0,heightChange);
+  printf("temp->data = %d",temp->data);
+  TEST_ASSERT_EQUAL_PTR(&node35,temp);
+
+  TEST_ASSERT_EQUAL_NODE(&node60,&node40,&node70,0);
+  TEST_ASSERT_EQUAL_NODE(&node40,NULL,NULL,0);
+  TEST_ASSERT_EQUAL_NODE(&node70,NULL,NULL,0);
+}
+
+
+ 
+ /**                             
+ *             30(+1)                30(+1)               
+ *             / \      ------>     /  \        
+ *           20  60(-1)           20   60(0)            
+ *          /    / \             /     /   \                
+ *        10 (-1)40  70        10    50    70             
+ *               \                     
+ *               50                    
+ **/
+
+void test_avlGetReplace_expected_BF_of_node60_is_0(void){
+  
+  
+  Node *root = &node30;
+  int cState =  avlAdd(&root,&node20);
+  cState =avlAdd(&root,&node60);
+  cState =avlAdd(&root,&node10);
+  cState =avlAdd(&root,&node40);   
+  cState =avlAdd(&root,&node70);
+  cState =avlAdd(&root,&node50);   
+  
+  int heightChange;
+  Node *temp = avlGetReplace( &root->right ,&heightChange);
+  printf(" heightChange = %d\n", heightChange);
+  TEST_ASSERT_EQUAL(1,heightChange);
+  TEST_ASSERT_EQUAL_PTR(&node40,temp);
+
+  TEST_ASSERT_EQUAL_NODE(&node60,&node50,&node70,0);
+  TEST_ASSERT_EQUAL_NODE(&node50,NULL,NULL,0);
+  TEST_ASSERT_EQUAL_NODE(&node70,NULL,NULL,0);
+}
+ 
+ /**                             
+ *             30(+1)                30(+1)                      30
+ *             / \      ------>     /  \        ----->          /  \
+ *           20  60(-1)           20   60(0)                  20   60
+ *          /    / \             /     /   \                 /    /  \
+ *        10 (+1)40  70        10 (+2)40    70              10  50   70
+ *             /  \   \                 \                      / \
+ *           45   50  80                50                   40  65
+ *                 \                     \
+ *                 65                    65
+ **/
  

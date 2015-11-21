@@ -54,12 +54,36 @@
 - :test: test_avlRemove_remove_node130_and_given_the_bal_factor_of_node80_is_1
   :line: 575
   :message: ''
+- :test: test_avlRemove_remove_node80_and_The_BF_of_node60_is_change_from_0_to_neg_1
+  :line: 607
+  :message: ''
+- :test: test_avlRemove_remove_node80_and_The_BF_of_node60_is_
+  :line: 635
+  :message: ''
+- :test: test_avlGetReplace_expected_BF_of_node60_is_negative_1_and_heightChange_is_0
+  :line: 667
+  :message: ''
+- :test: test_avlGetReplace_expected_BF_of_node60_is_0
+  :line: 736
+  :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 17
-  :passed: 17
+  :total: 21
+  :passed: 21
   :failed: 0
   :ignored: 0
 :stdout:
+- '60'
+- '40'
+- a)Takan value is 35
+- heightChange = 1
+- Add BF
+- heightChange = 0
+- heightChange = 0
+- '60'
+- b)Takan value is 40
+- heightChange = 1
+- Add BF
+- " heightChange = 1"
 - ''

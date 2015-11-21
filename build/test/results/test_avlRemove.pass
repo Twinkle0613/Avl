@@ -4,86 +4,168 @@
   :file: test_avlRemove.c
 :successes:
 - :test: test_avlRemove_remove_node60_in_tree
-  :line: 88
+  :line: 94
   :message: ''
 - :test: test_avlRemove_remove_node10_in_tree
-  :line: 108
+  :line: 114
   :message: ''
 - :test: test_avlRemove_remove_node5_in_tree
-  :line: 127
+  :line: 133
   :message: ''
 - :test: test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_0
-  :line: 148
+  :line: 154
   :message: ''
 - :test: test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_1_and_given_extra_node80
-  :line: 177
+  :line: 183
   :message: ''
 - :test: test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_1_and_given_extra_node65
-  :line: 210
+  :line: 216
   :message: ''
 - :test: test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_1_and_given_extra_node65_and_node80
-  :line: 245
+  :line: 251
   :message: ''
 - :test: test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_0
-  :line: 281
+  :line: 287
   :message: ''
 - :test: test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_negetive_1_and_given_extra_node50
-  :line: 309
+  :line: 315
   :message: ''
 - :test: test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_negetive_1_and_given_extra_node30
-  :line: 339
+  :line: 345
   :message: ''
 - :test: test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_negetive_1_and_given_extra_node30_and_node50
-  :line: 371
+  :line: 377
   :message: ''
 - :test: test_avlRemove_remove_node10_and_given_the_bal_factor_of_node40_is_0
-  :line: 405
+  :line: 411
   :message: ''
 - :test: test_avlRemove_remove_node10_and_given_the_bal_factor_of_node40_is_negative_1
-  :line: 439
+  :line: 445
   :message: ''
 - :test: test_avlRemove_remove_node10_and_given_the_bal_factor_of_node40_is_1
-  :line: 471
+  :line: 477
   :message: ''
 - :test: test_avlRemove_remove_node130_and_given_the_bal_factor_of_node80_is_0
-  :line: 506
+  :line: 512
   :message: ''
 - :test: test_avlRemove_remove_node130_and_given_the_bal_factor_of_node80_is_negative_1
-  :line: 542
+  :line: 548
   :message: ''
 - :test: test_avlRemove_remove_node130_and_given_the_bal_factor_of_node80_is_1
-  :line: 575
+  :line: 581
   :message: ''
 - :test: test_avlRemove_remove_node80_and_The_BF_of_node60_is_change_from_0_to_neg_1
-  :line: 607
+  :line: 613
   :message: ''
 - :test: test_avlRemove_remove_node80_and_The_BF_of_node60_is_
-  :line: 635
+  :line: 641
   :message: ''
 - :test: test_avlGetReplace_expected_BF_of_node60_is_negative_1_and_heightChange_is_0
-  :line: 667
+  :line: 673
   :message: ''
 - :test: test_avlGetReplace_expected_BF_of_node60_is_0
-  :line: 736
+  :line: 742
+  :message: ''
+- :test: test_avlGetReplace_expected_get_node45_BF_of_node60_is_0
+  :line: 776
+  :message: ''
+- :test: test_avlGetReplace_expected_get_node90_BF_of_node_is_0
+  :line: 828
   :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 21
-  :passed: 21
+  :total: 23
+  :passed: 23
   :failed: 0
   :ignored: 0
 :stdout:
+- hello
+- hello
+- hello
+- hello
+- hello
+- hello2
+- hello3
+- hello
+- hello
+- hello2
+- hello3
+- hello
+- hello
+- hello2
+- hello3
+- hello
+- hello
+- hello2
+- hello3
+- hello
+- hello
+- hello
+- hello
+- hello
+- hello
+- hello
+- hello
+- hello
+- hello2
+- hello
+- hello
+- hello2
+- hello
+- hello
+- hello2
+- hello
+- hello
+- hello
+- hello
+- hello
+- hello
+- hello
+- hello
+- hello
+- hello
 - '60'
 - '40'
 - a)Takan value is 35
 - heightChange = 1
 - Add BF
+- "(*root)->balanceFactor = 1"
+- hello
 - heightChange = 0
+- hello
 - heightChange = 0
 - '60'
 - b)Takan value is 40
 - heightChange = 1
 - Add BF
+- "(*root)->balanceFactor = 0"
+- hello
 - " heightChange = 1"
+- '140'
+- '100'
+- a)Takan value is 90
+- heightChange = 1
+- Add BF
+- "(*root)->balanceFactor = 2"
+- hello
+- hello2
+- hello3
+- heightChange = 1
+- Add BF
+- "(*root)->balanceFactor = 0"
+- hello
+- " heightChange = 1"
+- '140'
+- '100'
+- a)Takan value is 90
+- heightChange = 1
+- Add BF
+- "(*root)->balanceFactor = 2"
+- hello
+- hello2
+- hello3
+- heightChange = 0
+- hello
+- " heightChange = 0"
 - ''

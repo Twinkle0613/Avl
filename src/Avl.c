@@ -11,6 +11,7 @@
 
 int avlAdd(Node** root, Node* newNode){
   int change; 
+  int previousBF = rootBalFactor;
   if((*root)->data > newNode->data && (*root)->left == NULL ){
     (*root)->left = newNode; 
     decBFByOne((*root));    
@@ -31,6 +32,14 @@ int avlAdd(Node** root, Node* newNode){
    }
   }
    rotateTreeForAvlAdd(root,&change);
+   
+ if( (rootBalFactor == 1 || rootBalFactor == -1) && previousBF == 0 ){
+     change = 1;
+   }else{
+     change = 0;
+   }
+   
+   
   return change;
 }
 
@@ -149,12 +158,15 @@ Node *avlRemove(Node** root, int value , int *heightChange){
 }
 
 void rotateTreeForAvlRemove(Node** root){
+  printf("hello\n");
   switch( (*root)->balanceFactor ){
      case 2:
+     printf("hello2\n");
       if( (*root)->right->balanceFactor == -1 ){
         rightLeftRotate(root); 
         editBalFactorForAvlRovRLrotate(root);
       }else{
+        printf("hello3\n");
         leftRotate(root); 
         editBalFactorForAvlRovLrotate(root);
       }
@@ -241,7 +253,7 @@ Node* avlGetReplace(Node** root, int* heightChange){
     printf("a)Takan value is %d\n",(*root)->data);
    temp = (*root);
    (*root) = NULL;
-  *heightChange = 1;
+   *heightChange = 1;
   }else if( (*root)->left == NULL && (*root)->right ){
     printf("b)Takan value is %d\n",(*root)->data);
     temp = (*root);
@@ -255,10 +267,10 @@ Node* avlGetReplace(Node** root, int* heightChange){
    if( *heightChange ==  1){
      printf("Add BF\n");
       ++(*root)->balanceFactor;
+      printf("(*root)->balanceFactor = %d\n",(*root)->balanceFactor);
    }
       
-  // *heightChange = ifBFFrom1orNeg1to0(previousBF,rootBalFactor);
-   //rotateTreeForAvlRemove(root);
+   rotateTreeForAvlRemove(root);
    if( (previousBF == 1 || previousBF == -1) && rootBalFactor == 0 ){
      *heightChange = 1;
    }else{
@@ -268,7 +280,7 @@ Node* avlGetReplace(Node** root, int* heightChange){
   }
 
    
-
+  
   return temp;
 }
 

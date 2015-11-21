@@ -153,7 +153,7 @@ void test_avlAdd_add_rightNode_and_then_add_leftNode(void){
   }
  
  /**                                           
- *              30(0)     5         30(0) 
+ *              30(1)     5         30(0)   
  *             / \      ------>    / \ 
  *           10  60          (-1)10  60(+1)
  *                 \             /    \
@@ -171,7 +171,7 @@ void test_avlAdd_add_node5_into_node30Tree(void){
   TEST_ASSERT_EQUAL_NODE(root,&node10,&node60,0);
   TEST_ASSERT_EQUAL_NODE(root->right,NULL,&node80,1);
   TEST_ASSERT_EQUAL_NODE(root->left,&node5,NULL,-1);
-  TEST_ASSERT_EQUAL(cState,CHANGE);
+  TEST_ASSERT_EQUAL(NO_CHANGE,cState);
 
   }
   
@@ -196,7 +196,7 @@ void test_avlAdd_add_node50_into_node30Tree(void){
   TEST_ASSERT_EQUAL_NODE(root->left,NULL,NULL,0);          //node 10
   TEST_ASSERT_EQUAL(cState,NO_CHANGE);
 
-  }
+}
  
   /**                                           
  *              30(0)     5         30(-1) 

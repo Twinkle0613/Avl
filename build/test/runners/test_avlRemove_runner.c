@@ -51,6 +51,8 @@ extern void test_avlRemove_remove_node80_and_The_BF_of_node60_is_change_from_0_t
 extern void test_avlRemove_remove_node80_and_The_BF_of_node60_is_(void);
 extern void test_avlGetReplace_expected_BF_of_node60_is_negative_1_and_heightChange_is_0(void);
 extern void test_avlGetReplace_expected_BF_of_node60_is_0(void);
+extern void test_avlGetReplace_expected_get_node45_BF_of_node60_is_0(void);
+extern void test_avlGetReplace_expected_get_node90_BF_of_node_is_0(void);
 
 
 //=======Test Reset Option=====
@@ -66,27 +68,29 @@ void resetTest(void)
 int main(void)
 {
   UnityBegin("test_avlRemove.c");
-  RUN_TEST(test_avlRemove_remove_node60_in_tree, 88);
-  RUN_TEST(test_avlRemove_remove_node10_in_tree, 108);
-  RUN_TEST(test_avlRemove_remove_node5_in_tree, 127);
-  RUN_TEST(test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_0, 148);
-  RUN_TEST(test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_1_and_given_extra_node80, 177);
-  RUN_TEST(test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_1_and_given_extra_node65, 210);
-  RUN_TEST(test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_1_and_given_extra_node65_and_node80, 245);
-  RUN_TEST(test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_0, 281);
-  RUN_TEST(test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_negetive_1_and_given_extra_node50, 309);
-  RUN_TEST(test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_negetive_1_and_given_extra_node30, 339);
-  RUN_TEST(test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_negetive_1_and_given_extra_node30_and_node50, 371);
-  RUN_TEST(test_avlRemove_remove_node10_and_given_the_bal_factor_of_node40_is_0, 405);
-  RUN_TEST(test_avlRemove_remove_node10_and_given_the_bal_factor_of_node40_is_negative_1, 439);
-  RUN_TEST(test_avlRemove_remove_node10_and_given_the_bal_factor_of_node40_is_1, 471);
-  RUN_TEST(test_avlRemove_remove_node130_and_given_the_bal_factor_of_node80_is_0, 506);
-  RUN_TEST(test_avlRemove_remove_node130_and_given_the_bal_factor_of_node80_is_negative_1, 542);
-  RUN_TEST(test_avlRemove_remove_node130_and_given_the_bal_factor_of_node80_is_1, 575);
-  RUN_TEST(test_avlRemove_remove_node80_and_The_BF_of_node60_is_change_from_0_to_neg_1, 607);
-  RUN_TEST(test_avlRemove_remove_node80_and_The_BF_of_node60_is_, 635);
-  RUN_TEST(test_avlGetReplace_expected_BF_of_node60_is_negative_1_and_heightChange_is_0, 667);
-  RUN_TEST(test_avlGetReplace_expected_BF_of_node60_is_0, 736);
+  RUN_TEST(test_avlRemove_remove_node60_in_tree, 94);
+  RUN_TEST(test_avlRemove_remove_node10_in_tree, 114);
+  RUN_TEST(test_avlRemove_remove_node5_in_tree, 133);
+  RUN_TEST(test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_0, 154);
+  RUN_TEST(test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_1_and_given_extra_node80, 183);
+  RUN_TEST(test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_1_and_given_extra_node65, 216);
+  RUN_TEST(test_avlRemove_remove_node5_and_given_the_bal_factor_of_node60_is_1_and_given_extra_node65_and_node80, 251);
+  RUN_TEST(test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_0, 287);
+  RUN_TEST(test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_negetive_1_and_given_extra_node50, 315);
+  RUN_TEST(test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_negetive_1_and_given_extra_node30, 345);
+  RUN_TEST(test_avlRemove_remove_node130_and_given_the_bal_factor_of_node60_is_negetive_1_and_given_extra_node30_and_node50, 377);
+  RUN_TEST(test_avlRemove_remove_node10_and_given_the_bal_factor_of_node40_is_0, 411);
+  RUN_TEST(test_avlRemove_remove_node10_and_given_the_bal_factor_of_node40_is_negative_1, 445);
+  RUN_TEST(test_avlRemove_remove_node10_and_given_the_bal_factor_of_node40_is_1, 477);
+  RUN_TEST(test_avlRemove_remove_node130_and_given_the_bal_factor_of_node80_is_0, 512);
+  RUN_TEST(test_avlRemove_remove_node130_and_given_the_bal_factor_of_node80_is_negative_1, 548);
+  RUN_TEST(test_avlRemove_remove_node130_and_given_the_bal_factor_of_node80_is_1, 581);
+  RUN_TEST(test_avlRemove_remove_node80_and_The_BF_of_node60_is_change_from_0_to_neg_1, 613);
+  RUN_TEST(test_avlRemove_remove_node80_and_The_BF_of_node60_is_, 641);
+  RUN_TEST(test_avlGetReplace_expected_BF_of_node60_is_negative_1_and_heightChange_is_0, 673);
+  RUN_TEST(test_avlGetReplace_expected_BF_of_node60_is_0, 742);
+  RUN_TEST(test_avlGetReplace_expected_get_node45_BF_of_node60_is_0, 776);
+  RUN_TEST(test_avlGetReplace_expected_get_node90_BF_of_node_is_0, 828);
 
   return (UnityEnd());
 }
